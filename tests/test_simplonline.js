@@ -36,15 +36,45 @@ const assert = require("assert");
     brief.click();
 
     let option = await driver.wait(
-      until.elementLocated(By.xpath('//*[@id="react-aria1829460851-145"]/svg'))
+      until.elementLocated(By.xpath("//*[text()='Options']"))
     );
-    option.click();
+    await option.click();
 
     let submitBrief = await driver.wait(
-      By.xpath("//*[@id='react-aria1829460851-94']/a")
+      until.elementLocated(By.css("[data-key='submitIndividualWork']"))
+    );
+    await submitBrief.click();
+
+    let buttonRendu = await driver.wait(
+      until.elementLocated(By.xpath("//*[text()='Soumettre un rendu']"))
+    );
+    await buttonRendu.click();
+
+    let linkInput = await driver.wait(
+      until.elementLocated(By.css("[placeholder='Coller votre URL ici...']")),
+      5000
+    );
+    await linkInput.sendKeys("https://github.com/M0orph3us/EndToEnd");
+
+    let addLinkButton = await driver.wait(
+      until.elementLocated(
+        By.css("[type='button'][class='sc-9f43adf8-0 egdvqs']")
+      )
+    );
+    await addLinkButton.click();
+
+    let inputMessage = await driver.wait(
+      until.elementLocated(
+        By.css("[placeholder='Envoyer un message avec le rendu...']")
+      )
     );
 
-    submitBrief.click();
+    await inputMessage.sendKeys("Hello");
+
+    let send = await driver.wait(
+      until.elementLocated(By.className("sc-3243846d-0 eZuIYT"))
+    );
+    await send.click();
   } catch (e) {
     console.log(e);
   } finally {

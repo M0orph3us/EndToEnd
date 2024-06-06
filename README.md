@@ -1,23 +1,21 @@
 # SeleniumSandbox
 
-
 ## Installation et démarrage
 
 a. Créer un dossier SeleniumSandbox et l'ouvrir dans VSCode
 
 b. Dans le terminal, initialiser le projet avec `npn init -y` (initialisation par défaut)
 
-c. Installer Selenium : 
+c. Installer Selenium :
 `npm install --save selenium-webdriver chromedriver geckodriver`
 
 d. Dans le fichier `package.json`, au niveau des dépendances, ajouter : `"mocha": "10.4.0"`, relancer `npm install` si besoin.
- 
+
 e. Créer un dossier `tests` et dans ce dossier.
 
 f. Mettre ce projet sur GitHub et faire un `commit` et `push` au minimum pour chaque exercice (avec le nom de l'exercice dans le message de commit).
 
-
-__Squelette de fonction de test :__
+**Squelette de fonction de test :**
 
 ```
 const {By, Key, Builder, WebElementCondition, until} = require("selenium-webdriver");
@@ -28,31 +26,30 @@ const assert = require("assert");
 
 		try {
 			// custom code goes here
-			
+
 		} catch(e) {
 			console.log(e);
 
 		} finally {
 			await driver.quit();
-			
+
 			/*
 	    setInterval(function(){
 	        driver.quit();
 	    }, 10000);
 			*/
-			
+
 		}
 }())
 
 ```
 
-
 ## Exercices
 
-### Exercice 1 : 
+### Exercice 1 :
 
 Dans le dossier `tests`, créer un fichier `test_google.js`.
-Créer une fonction `test_google()` à partir du squelette de fonction de test, puis suivre les étapes : 
+Créer une fonction `test_google()` à partir du squelette de fonction de test, puis suivre les étapes :
 
 a. Ouvrir le site de Google
 
@@ -62,12 +59,11 @@ c. Lancer le test avec la commande `mocha test_google.js` ou `npx mocha test_goo
 
 _Hint: [Doc de Selenium](https://www.selenium.dev/documentation/webdriver/getting_started/first_script/)_
 
+### Exercice 2 :
 
-### Exercice 2 : 
+Créer un nouveau fichier, nommé `test_github.js`. Le but sera de tester le login qui échoue.
 
-Créer un nouveau fichier, nommé `test_github.js`. Le but sera de tester le login qui échoue. 
-
-En vous inspirant du code vu précédemment, créer une fonction et suivez les étapes : 
+En vous inspirant du code vu précédemment, créer une fonction et suivez les étapes :
 
 a. Ouvrir le site de GitHub
 
@@ -79,54 +75,48 @@ d. En utilisant `assert`, vérifier que le titre obtenu est bien le titre attend
 
 e. Inscrire un login et un mot de passe (erronés) dans les champs correspondants (en utilisant des sélecteurs CSS), et cliquer ou taper sur Entrée.
 
-f. Vérifier la présence d'un message d'erreur sur la page. Si le message s'affiche, le test est réussi, utiliser `assert` pour tester cela.  
+f. Vérifier la présence d'un message d'erreur sur la page. Si le message s'affiche, le test est réussi, utiliser `assert` pour tester cela.
 
 g. Lancer le test
 
 _Hint: [Page suivante dans la doc de Selenium](https://www.selenium.dev/documentation/webdriver/getting_started/using_selenium/)_
 
-
-### Exercice 3 : 
+### Exercice 3 :
 
 a. Modifier le code précédent pour lancer le test en mode responsive sur mobile.
 
 b. Modifier le code précédent pour lancer le test sur un autre navigateur (ex : Firefox).
 
+### Exercice 4 :
 
-### Exercice 4 : 
+Créer un nouveau fichier, nommé `test_airbnb.js`.
 
-Créer un nouveau fichier, nommé `test_airbnb.js`. 
-
-Sans être guidé dans le détail des étapes, réaliser une recherche logement sur AirBnb en remplissant une destination, des dates, et un nombre de voyageurs. Varier les thématiques pour obtenir des résultats différents. 
-
+Sans être guidé dans le détail des étapes, réaliser une recherche logement sur AirBnb en remplissant une destination, des dates, et un nombre de voyageurs. Varier les thématiques pour obtenir des résultats différents.
 
 _Hint: [GitHub de Selenium](https://github.com/SeleniumHQ/seleniumhq.github.io/tree/trunk/examples/javascript/test)_
 
+### Exercice 5 :
 
-### Exercice 5 : 
-
-Créer un nouveau fichier, nommé `test_simplonline.js`. 
+Créer un nouveau fichier, nommé `test_simplonline.js`.
 
 a. Aller sur le site de Simplonline
 
-b. Tester des login et mdp erronés. Le test est réussi si l'utilisateur n'arrive pas à se connecter. 
+b. Tester des login et mdp erronés. Le test est réussi si l'utilisateur n'arrive pas à se connecter.
 
-c. Créer une nouvelle fonction ou modifier la fonction existante pour se connecter avec succès sur Simplonline avec votre compte. Attention à mettre vos identifiant et mdp dans un fichier ignoré par GitHub. 
+c. Créer une nouvelle fonction ou modifier la fonction existante pour se connecter avec succès sur Simplonline avec votre compte. Attention à mettre vos identifiant et mdp dans un fichier ignoré par GitHub.
 
-d. Aller sur le brief de test pour poster le rendu avec le lien GitHub de vos tests ! 
+d. Aller sur le brief de test pour poster le rendu avec le lien GitHub de vos tests !
 
 Ceci est un test de bout-en-bout (end-to-end) :)
 
-
-
-
-## Ressources : 
+## Ressources :
 
 - Mocha : https://mochajs.org/
 - Selenium : https://www.selenium.dev/documentation/
 - GitHub de Selenium : https://github.com/SeleniumHQ/seleniumhq.github.io/tree/trunk/examples
 
 _Pour aller plus loin :_
+
 - Cypress vs Selenium : https://ittestgroup.com/conseils-actualites/cypress-vs-selenium-differences-et-similarites-2023/
 - Cypress vs Selenium : https://geekflare.com/fr/cypress-vs-selenium/
 - Tuto sur Cypress : https://grafikart.fr/tutoriels/cypress-993
